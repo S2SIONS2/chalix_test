@@ -70,11 +70,9 @@ const Expertise = () => {
                 end: "bottom top",
                 toggleActions: "play none none none",
                 onEnter: () => {
-                    console.log("👇 스크롤 내림 → 애니메이션 실행");
                     tl.play();
                 },
                 onLeaveBack: () => {
-                    console.log("☝️ 스크롤 올림 → 애니메이션 반대로 실행");
                     tl.reverse();
                 }
             });

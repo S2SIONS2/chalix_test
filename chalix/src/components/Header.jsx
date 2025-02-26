@@ -18,13 +18,14 @@ const Header = () => {
     const headerRef = useRef(null)
     useEffect(() => {
         // 처음 로드 시 애니메이션
-        gsap.fromTo(
-            headerRef.current,
-            { opacity: 0, y: -100 },
-            { opacity: 1, y: 0, duration: 0.5, ease: "none", delay: 0.5,} 
-        )
+        if (window.scrollY === 0) {
+            gsap.fromTo(headerRef.current, { opacity: 0, y: -100 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" });
+        } else {
+            gsap.to(headerRef.current, { opacity: 0, y: -100, duration: 0 });
+        }
+        
+        // 스크롤 중 애니메이션
         let lastScroll = 0;
-
         ScrollTrigger.create({
             start: "top top",
             end: "bottom bottom",
@@ -32,13 +33,13 @@ const Header = () => {
             onUpdate: (self) => {
                 let currentScroll = self.scroll();
                 if (currentScroll > lastScroll) {
-                    gsap.to(headerRef.current, { y: -100, duration: 0,});
+                    gsap.to(headerRef.current, { y: -100, duration: 0, opacity: 0});
                 } else {
                     if (currentScroll < lastScroll) {
-                        gsap.to(headerRef.current, { y: 0, duration: 0, backgroundColor: '#55555575'});
+                        gsap.to(headerRef.current, { y: 0, duration: 0, backgroundColor: '#55555575', opacity: 1});
                     }
                     if (currentScroll === 0) {
-                        gsap.to(headerRef.current, { backgroundColor:'transparent' });
+                        gsap.to(headerRef.current, { duration: 0, backgroundColor:'transparent', opacity: 1 });
                     }
                 } 
                 lastScroll = currentScroll;
@@ -157,4 +158,4 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default Header; 

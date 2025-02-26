@@ -69,6 +69,8 @@ const Expertise = () => {
                 start: "bottom 100%",
                 end: "bottom top",
                 toggleActions: "play none none none",
+                // scrub: false,
+                scrollBehavior: "lock",
                 onEnter: () => {
                     tl.play();
                 },

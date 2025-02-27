@@ -46,7 +46,7 @@
     justify-content: flex-start;
 
 }
-.intro_title >span{
+/* .intro_title >span{
     opacity: 0;
     animation: opacity 1s forwards;
 }
@@ -57,7 +57,7 @@
     100% {
         opacity: 1;
     }
-}
+} */
 .intro_video{
     width: 100%;
     height: 100%;

@@ -12,7 +12,7 @@ const Intro = () => {
         gsap.fromTo(
             textRef.current.querySelectorAll("span"),
             { opacity: 0 },
-            { opacity: 1, stagger: 0.03, duration: 0.25, ease: "none", delay: 0.1, }
+            { opacity: 1, stagger: 0.03, duration: 0.25, ease: "none", delay: 1, }
         )
     }, [])
     

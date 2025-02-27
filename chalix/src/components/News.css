@@ -23,6 +23,11 @@
     flex-wrap: wrap;
     color: #fff;
 }
+/* 빈 li */
+.News .container ul li {
+    width: 20%;
+    aspect-ratio: 1 / 1;
+}
 /* 타이틀 li */
 .News .container ul .newsContent.big{
     width: 40%;
@@ -35,11 +40,6 @@
     justify-content: space-between;
 
     aspect-ratio: 1 / 0.85;
-}
-/* 빈 li */
-.News .container ul li {
-    width: 20%;
-    aspect-ratio: 1 / 1;
 }
 /* 기본 파란색 li */
 .News .container ul .newsContent{
@@ -61,7 +61,22 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    position: relative;
 }
+.News .container ul .newsContent .arrow {
+    display: block;
+    transform: rotate(40deg);
+    transition: 0.3s;
+    font-size: 60px;
+
+    position: absolute;
+    bottom: 10px;
+}
+.News .container ul .newsContent:hover .arrow{
+    transform: translate(20%, -20%) rotate(40deg);
+}
+
 .News .container ul .newsContent.point {
     background-color: #ff471d;
 }
@@ -95,10 +110,55 @@
 }
 
 @media screen and (max-width: 768px) {
+    .News {
+        width: 100%;
+        padding: 200px 15px 100px;
+    }
+    .News .container ul li {
+        width: 50%;
+        padding: 15px !important;
+    }
     .mobile {
         display: block !important;
     }
     .pc {
         display: none !important;
+    }
+    .newsContent:nth-child(3), 
+    .newsContent:nth-child(7) {
+        width: 167.5px !important;
+        height: 167.5px;
+    }
+    .newsContent.big {
+        width: calc((100% / 0) * 2) !important;
+        aspect-ratio: 1 / .7 !important;
+    }
+    .News .container ul .newsContent.small {
+        justify-content: flex-end;
+    }
+    .News .container ul .newsContent.big a {
+        font-size: 28px;
+    }
+    .News .container ul .newsContent a {
+        font-size: 16px;
+    }
+    .News .container ul .newsContent.small a{
+        display: flex;
+    }
+
+    .News .container ul .newsContent .arrow {
+        font-size: 16px;
+        position: static;
+    }
+
+    .News .container ul .newsContent .icon {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
+    .News .container ul .newsContent .icon img{
+        width: 3.2rem;
+        height: 3.2rem;
+        overflow: hidden;
     }
 }

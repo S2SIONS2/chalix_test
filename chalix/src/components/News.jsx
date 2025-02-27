@@ -172,11 +172,8 @@ const News = () => {
                     <li className='pc'></li>
                     <li className='newsContent point small'>
                         <a href='#'>
-                            {"바로가기".split("").map((char, index) => (
-                                <span key={index}>
-                                    {char === " " ? "\u00A0" : char}
-                                </span>
-                            ))}
+                            <span>바로가기</span>
+                            <span className='arrow'>↑</span> 
                         </a>
                     </li>
                 </ul>

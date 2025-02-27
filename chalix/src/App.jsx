@@ -5,6 +5,7 @@ import Header from './components/header'
 import Intro from './components/intro'
 import Footer from './components/Footer'
 import Expertise from './components/Expertise'
+import News from './components/News'
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
       <main>
         <Intro />
         <Expertise />
-        <Expertise />
+        <News />
       </main>
       <Footer />
     </>

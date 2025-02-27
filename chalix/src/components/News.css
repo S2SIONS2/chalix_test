@@ -1,0 +1,104 @@
+.News {
+    width: 100%;
+    height: 100%;
+    padding: 210px 48px 300px;
+    box-sizing: border-box;
+
+    background-color: #fff;
+}
+.News * {
+    box-sizing: border-box;
+    font-family: Pretendard Variable, sans-serif;
+    line-height: 1.2;
+}
+.News .container{
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+}
+.News .container ul{
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    color: #fff;
+}
+/* 타이틀 li */
+.News .container ul .newsContent.big{
+    width: 40%;
+    padding: 70px 50px;
+
+    margin-top: -6rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    aspect-ratio: 1 / 0.85;
+}
+/* 빈 li */
+.News .container ul li {
+    width: 20%;
+    aspect-ratio: 1 / 1;
+}
+/* 기본 파란색 li */
+.News .container ul .newsContent{
+    padding: 40px;
+
+    background-color: #194391;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition: all .3s;
+}
+/* 주황색 li */
+.News .container ul .newsContent.small {
+    padding: 80px 40px 50px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.News .container ul .newsContent.point {
+    background-color: #ff471d;
+}
+.News .container ul .newsContent h3{
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+}
+.News .container ul .newsContent a {
+    font-size: 24px;
+    font-weight: 700;
+}
+.News .container ul .newsContent:not(.small) a span{
+    opacity: 0
+}
+.News .container ul .newsContent.big a {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.newsContent .icon{
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+}
+.newsContent:hover .icon{
+    opacity: 1;
+}
+/* 모바일에서만 */
+.mobile {
+    display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile {
+        display: block !important;
+    }
+    .pc {
+        display: none !important;
+    }
+}

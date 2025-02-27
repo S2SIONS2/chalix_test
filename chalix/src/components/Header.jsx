@@ -15,16 +15,26 @@ const Header = () => {
     }
 
     // 스크롤 시 네비 조절
-    const headerRef = useRef(null)
+    const headerRef = useRef(null) // 전체 header 
+    const pcHeaderRef = useRef(null) // pc용 header
     useEffect(() => {
         // 처음 로드 시 애니메이션
-        if (window.scrollY === 0) {
-            gsap.fromTo(headerRef.current, { opacity: 0, y: -100 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" });
-        } else {
-            gsap.to(headerRef.current, { opacity: 0, y: -100, duration: 0 });
+        // gsap.fromTo(
+        //     headerRef.current,
+        //     { opacity: 0, y: -100 },
+        //     { opacity: 1, y: 0, duration: 0.5, ease: "none", delay: 0.5, scrollTrigger: {
+        //         trigger: headerRef.current,
+        //         start: "top 0",
+        //     }} 
+        // )
+        // console.log(window.scrollY)
+        if(window.scrollY !== 0){
+            gsap.to(
+                headerRef.current,
+                { top: -100, duration: 0 }
+            )
         }
         
-        // 스크롤 중 애니메이션
         let lastScroll = 0;
         ScrollTrigger.create({
             start: "top top",
@@ -32,14 +42,22 @@ const Header = () => {
             scrub: false,
             onUpdate: (self) => {
                 let currentScroll = self.scroll();
+                if(window.scrollY !== 0){
+                    gsap.to(
+                        headerRef.current,
+                        { top: -100, duration: 0 }
+                    )
+                }
+                
                 if (currentScroll > lastScroll) {
-                    gsap.to(headerRef.current, { y: -100, duration: 0, opacity: 0});
+                    gsap.to(pcHeaderRef.current, { y: -100, duration: 0,});
                 } else {
-                    if (currentScroll < lastScroll) {
-                        gsap.to(headerRef.current, { y: 0, duration: 0, backgroundColor: '#55555575', opacity: 1});
+                    if (self.direction === -1) {
+                        gsap.to(headerRef.current, { top: 0 })
+                        gsap.to(pcHeaderRef.current, { y: 0, duration: 0, backgroundColor: '#55555575'});
                     }
                     if (currentScroll === 0) {
-                        gsap.to(headerRef.current, { duration: 0, backgroundColor:'transparent', opacity: 1 });
+                        gsap.to(pcHeaderRef.current, { backgroundColor:'transparent', duration: 0, top: 0 });
                     }
                 } 
                 lastScroll = currentScroll;
@@ -53,7 +71,7 @@ const Header = () => {
 
     return (
         <header className='header' ref={headerRef}>
-            <div className='nav_wrap pc'>
+            <div className='nav_wrap pc' ref={pcHeaderRef}>
                 <nav className='nav'>
                     <a href='#' className='logo'>
                         <img src={logo} alt='logo' />
@@ -158,4 +176,4 @@ const Header = () => {
     )
 }
 
-export default Header; 
+export default Header;

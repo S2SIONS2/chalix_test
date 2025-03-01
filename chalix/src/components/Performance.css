@@ -139,4 +139,12 @@
     .mobile {
         display: block;
     }
+    .Performance .sticky h1 {
+        font-size: 28px;
+    }
+    .Performance .sticky .img_wrap {
+        width: 160px;
+        height: 99px;
+        overflow: hidden;
+    }
 }

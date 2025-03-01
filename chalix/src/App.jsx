@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import Expertise from './components/Expertise'
 import News from './components/News'
 import Topbutton from './components/Topbutton'
+import Performance from './components/Performance'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Intro />
         <Expertise />
         <News />
+        <Performance />
       </main>
       <Footer />
     </>

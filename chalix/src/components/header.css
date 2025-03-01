@@ -262,10 +262,10 @@
 }
 @media screen and (max-width: 768px) {
     .header .pc{
-        display: none;
+        display: none !important;
     }
     .header .nav_wrap.mobile{
-        display: block;
+        display: block !important;
     }
     .header{
         height: 60px;
@@ -274,5 +274,6 @@
         background-color: #c1bebe8a !important;
         transform: translateY(0px) !important;
         opacity: 1 !important;
+        top: 0 !important;
     }
 }

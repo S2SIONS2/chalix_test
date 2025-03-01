@@ -4,6 +4,7 @@ import menu from '../assets/menu.png';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,15 +20,6 @@ const Header = () => {
     const pcHeaderRef = useRef(null) // pc용 header
     useEffect(() => {
         // 처음 로드 시 애니메이션
-        // gsap.fromTo(
-        //     headerRef.current,
-        //     { opacity: 0, y: -100 },
-        //     { opacity: 1, y: 0, duration: 0.5, ease: "none", delay: 0.5, scrollTrigger: {
-        //         trigger: headerRef.current,
-        //         start: "top 0",
-        //     }} 
-        // )
-        // console.log(window.scrollY)
         if(window.scrollY !== 0){
             gsap.to(
                 headerRef.current,
@@ -73,9 +65,9 @@ const Header = () => {
         <header className='header' ref={headerRef}>
             <div className='nav_wrap pc' ref={pcHeaderRef}>
                 <nav className='nav'>
-                    <a href='#' className='logo'>
+                    <Link to={'/'} className='logo'>
                         <img src={logo} alt='logo' />
-                    </a>
+                    </Link>
                     <ul className='nav_menu'>
                         <li>
                             <div className='menu'>
@@ -121,7 +113,9 @@ const Header = () => {
                                     사업실적
                                 </li>
                                 <li>
-                                    <a href='#'>발표논문</a>
+                                    <Link to={'/presentaion'}>
+                                        발표논문
+                                    </Link>
                                 </li>
                                 <li>
                                     NEWS
@@ -138,9 +132,9 @@ const Header = () => {
             </div>
             <div className='nav_wrap mobile'>
                 <div className='mobile_header_wrap'>
-                    <a href='#' className='logo'>
+                    <Link to={'/'} className='logo'>
                         <img src={logo} alt='logo' />
-                    </a>
+                    </Link>
                     <div className='menu_btn'>
                         <button type='button' 
                             onClick={() => onToggle()}

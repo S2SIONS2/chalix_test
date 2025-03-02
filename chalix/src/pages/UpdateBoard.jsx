@@ -134,6 +134,9 @@ const UpdateBoard = () => {
             {
                 list.map((item) => (
                     <div key={item.id} className="list_wrap">
+                        <div className="button_group">                            
+                            <button className='delete_button' onClick={() => deleteBtn()}>삭제</button>
+                        </div>
                         <div className="list_title">
                             <h2>
                                 <input 
@@ -155,7 +158,6 @@ const UpdateBoard = () => {
                         <div className="button_group">
                             <button className="cancel_button" onClick={cancleBtn}>취소</button>
                             <button className="save_button" onClick={() => updateBtn()}>저장</button>
-                            <button className='delete_button' onClick={() => deleteBtn()}>삭제</button>
                         </div>
                     </div>
                 ))

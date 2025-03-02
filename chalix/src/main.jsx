@@ -6,6 +6,7 @@ import Presentation from './pages/Presentation.jsx'
 import Header from './components/header.jsx'
 import Footer from './components/Footer.jsx'
 import UpdateBoard from './pages/UpdateBoard.jsx'
+import PostBoard from './pages/PostBoard.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -14,6 +15,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/' element={<App />}></Route>
         <Route path='/presentaion' element={<Presentation />} />
         <Route path='/updateboard' element={<UpdateBoard />} />
+        <Route path='/postboard' element={<PostBoard />} />
       </Routes>
     <Footer />
   </BrowserRouter>

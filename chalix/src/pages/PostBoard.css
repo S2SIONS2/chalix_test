@@ -1,4 +1,4 @@
-.UpdateBoard {
+.PostBoard {
     width: 100%;
     height: 100%;
 
@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 /* 전체 래퍼 스타일 */
-.UpdateBoard .list_wrap {
+.PostBoard .list_wrap {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
@@ -16,7 +16,7 @@
 }
 
 /* 제목 영역 스타일 */
-.UpdateBoard .list_title {
+.PostBoard .list_title {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,13 +26,13 @@
     margin-bottom: 20px;
 }
 
-.UpdateBoard .list_title h2 {
+.PostBoard .list_title h2 {
     font-size: 1.5rem;
     margin: 0;
     flex-grow: 1;
 }
 
-.UpdateBoard .list_title input[type="text"] {
+.PostBoard .list_title input[type="text"] {
     width: 100%;
     max-width: 500px;
 
@@ -42,13 +42,13 @@
     border-radius: 8px;
 }
 
-.UpdateBoard .reg_datetime {
+.PostBoard .reg_datetime {
     font-size: 0.9rem;
     color: #888;
 }
 
 /* 내용 입력 스타일 */
-.UpdateBoard .list_content textarea {
+.PostBoard .list_content textarea {
     width: 100%;
     min-height: 150px;
     padding: 10px;
@@ -60,15 +60,15 @@
 }
 
 /* 버튼 그룹 스타일 */
-.UpdateBoard .button_group {
+.PostBoard .button_group {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 /* 개별 버튼 스타일 */
-.UpdateBoard button {
+.PostBoard button {
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
@@ -77,34 +77,34 @@
     transition: all 0.3s;
 }
 
-.UpdateBoard .cancel_button {
+.PostBoard .cancel_button {
     background-color: #ddd;
     color: #333;
 }
 
-.UpdateBoard .cancel_button:hover {
+.PostBoard .cancel_button:hover {
     background-color: #ccc;
 }
 
-.UpdateBoard .save_button {
+.PostBoard .save_button {
     background-color: #45619d;
     color: white;
 }
 
-.UpdateBoard .save_button:hover {
+.PostBoard .save_button:hover {
     background-color: #2980b9;
 }
 
 /* 입력 필드 포커스 스타일 */
-.UpdateBoard input[type="text"]:focus,
-textarea:focus {
+.PostBoard input[type="text"]:focus,
+.PostBoard textarea:focus {
     border-color: #3498db;
     outline: none;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
 
 @media screen and (max-width: 768px) {
-    .UpdateBoard {
+    .PostBoard {
         width: 100%;
         height: calc(100vh - 174px);
     

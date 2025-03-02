@@ -1,11 +1,14 @@
 import './Board.css';
 import { useEffect, useState } from 'react';
 import BoardList from './BoardList';
+import { useNavigate } from 'react-router-dom';
 
 const Board = () => {
-     // board read
+    // board read
     const [loading, setLoading] = useState(true);
     const [list, setList] = useState([]);
+    const nav = useNavigate();
+
     const fetchData = async () => {
         try {
             setLoading(true)
@@ -39,50 +42,9 @@ const Board = () => {
         }
     };
 
-    // post
-    const postData = async () => {
-        const postData = {
-            brd_type: "thesis",
-            brd_category: "기술개발부",
-            brd_sub_category: "",
-            brd_title: "Efficient Removal of Toluene, p-Xylene VOCs and Pathogen using Mesoporous Al2O3 beads decorated Copper Metal Organic Framework (Cu-CPP) for Air Treatment",
-            brd_content: "<p>.</p>",
-            brd_link: null,
-            brd_file: null,
-            brd_filename: null,
-            reg_datetime: "2024-10-11T05:23:44.000Z",
-            upd_datetime: "2024-10-11T05:23:44.000Z",
-            brd_ext_startdate: null,
-            brd_ext_enddate: null,
-            brd_ext1: "국내",
-            brd_ext2: "한국대기환경학회",
-            brd_ext3: null,
-            brd_ext4: null,
-            brd_ext5: null,
-            brd_status: "Y",
-            brd_pick: "N",
-            prd_filepath: null,
-            prd_filename: null
-        };
-    
-        try {
-            const response = await fetch("http://daeho2.shop:8081/board", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(postData),
-            });
-    
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-    
-            await response.json();
-        } catch (error) {
-            console.error("Error posting data:", error);
-        }
-    };
+    const postNav = () => {
+        nav('/postboard')
+    }
     
     useEffect(() => {
         fetchData()
@@ -94,7 +56,9 @@ const Board = () => {
 
     return (
         <section className="Board">
-            <button type='button' onClick={() => postData}>게시물 추가</button>
+            <div className='btn_wrap'>
+                <button type='button' onClick={postNav}>게시물 추가</button>
+            </div>
             <div className='table_wrap'>
                 <div className='table_thead'>
                     <div className='td td1'>번호</div>
@@ -105,12 +69,14 @@ const Board = () => {
                 </div>
                 <ol className='table_tbody'>
                     {
-                        list.map((item) => (
-                            <BoardList 
-                                key={item.id}
-                                {...item}
-                            />
-                        ))
+                        list
+                            .sort((a, b) => new Date(b.reg_datetime) - new Date(a.reg_datetime)) // reg_datetime 내림차순 정렬
+                            .map((item) => (
+                                <BoardList 
+                                    key={item.id}
+                                    {...item}
+                                />
+                            ))
                     }
                 </ol>
             </div>

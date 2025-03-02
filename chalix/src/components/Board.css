@@ -4,6 +4,21 @@
     padding: 200px 48px;
     box-sizing: border-box;
 }
+
+.Board .btn_wrap{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.Board button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
 .Board .table_wrap{
     width: 100%;
     height: 100%;

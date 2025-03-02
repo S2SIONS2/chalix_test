@@ -8,6 +8,7 @@ const BoardList = ({
     brd_ext2,
     brd_title,
     reg_datetime,
+    upd_datetime,
 }) => {        
     const nav = useNavigate();
     
@@ -27,7 +28,11 @@ const BoardList = ({
                 {brd_title}
             </div>
             <div className='td td2'>
-                {reg_datetime}
+                {   upd_datetime ? 
+                    upd_datetime.substring(0, 10)
+                    :
+                    reg_datetime.substring(0, 10)
+                }
             </div>
             <div className='td td2'>
                 {brd_ext1}

@@ -22,9 +22,10 @@ const Board = () => {
     
             const data = await response.json();
             setList(data);
-            console.log(data);
         } catch (error) {
-            console.log("Fetch error:", error);
+            if(error){
+                alert('현재 json서버가 이상하여 파일에 있는 값으로 대체합니다.')
+            }
             const response = await fetch("../../chailx.json", {
                 method: "GET",
                 headers: {
@@ -77,8 +78,7 @@ const Board = () => {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
     
-            const result = await response.json();
-            console.log("Post created:", result);
+            await response.json();
         } catch (error) {
             console.error("Error posting data:", error);
         }

@@ -12,7 +12,7 @@ const BoardList = ({
     const nav = useNavigate();
     
     const onUpdate = (id) => {
-        nav()
+        nav('/updateboard', {state: {id: id}})
     }
 
     return (
@@ -27,7 +27,7 @@ const BoardList = ({
                 {brd_title}
             </div>
             <div className='td td2'>
-                {reg_datetime.substr(0,10)}
+                {reg_datetime}
             </div>
             <div className='td td2'>
                 {brd_ext1}

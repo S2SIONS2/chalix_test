@@ -1,8 +1,44 @@
-import { useEffect } from 'react';
+import './Board.css';
+import { useEffect, useState } from 'react';
 import BoardList from './BoardList';
 
 const Board = () => {
-    // board post
+     // board read
+    const [loading, setLoading] = useState(true);
+    const [list, setList] = useState([]);
+    const fetchData = async () => {
+        try {
+            setLoading(true)
+            const response = await fetch("http://daeho2.shop:8081/board", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
+            const data = await response.json();
+            setList(data);
+            console.log(data);
+        } catch (error) {
+            console.log("Fetch error:", error);
+            const response = await fetch("../../chailx.json", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            const data = await response.json();
+            setList(data.list || []); // 데이터가 없는 경우 빈 배열 설정
+        } finally {
+            setLoading(false); // 로딩 완료
+        }
+    };
+
+    // post
     const postData = async () => {
         const postData = {
             brd_type: "thesis",
@@ -47,13 +83,38 @@ const Board = () => {
             console.error("Error posting data:", error);
         }
     };
+    
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    if(loading) {
+        <div>Loading...</div>
+    }
+
     return (
-        <div className="Board">
-            <section className='board'>
-                <button type='button' onClick={() => postData}>게시물 추가</button>
-                <BoardList />
-            </section>
-        </div>
+        <section className="Board">
+            <button type='button' onClick={() => postData}>게시물 추가</button>
+            <div className='table_wrap'>
+                <div className='table_thead'>
+                    <div className='td td1'>번호</div>
+                    <div className='td td6'>학술대회명</div>
+                    <div className='td td6'>논문명</div>
+                    <div className='td td2'>날짜</div>
+                    <div className='td td2'>비고(국내/해외)</div>
+                </div>
+                <ol className='table_tbody'>
+                    {
+                        list.map((item) => (
+                            <BoardList 
+                                key={item.id}
+                                {...item}
+                            />
+                        ))
+                    }
+                </ol>
+            </div>
+        </section>
     )
 }
 

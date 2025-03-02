@@ -1,39 +1,38 @@
-import { useEffect } from "react";
+import './Board.css';
+import { useNavigate } from 'react-router-dom';
 
-const BoardList = () => {
-    // board read
-    const fetchData = async () => {
-        try{
-            const response = await fetch("http://daeho2.shop:8081/board" , {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-
-            const data = await response.json();
-            console.log(data)
-            return data;
-        }catch(error){
-            console.log(error)
-            const response = await fetch("../../chailx.json" , {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            const data = await response.json();
-            return data.list;
-        }
+/* eslint-disable react/prop-types */
+const BoardList = ({
+    id,
+    brd_ext1,
+    brd_ext2,
+    brd_title,
+    reg_datetime,
+}) => {        
+    const nav = useNavigate();
+    
+    const onUpdate = (id) => {
+        nav()
     }
 
-    useEffect(() => {
-        fetchData()
-    }, [])
     return (
-        <div className="BoardList">
-            BoardList
-        </div>
+        <li className="BoardList" onClick={() => onUpdate(id)}>
+            <div className='td td1'>
+                {id}
+            </div>
+            <div className='td td6'>
+                {brd_ext2}
+            </div>
+            <div className='td td6'>
+                {brd_title}
+            </div>
+            <div className='td td2'>
+                {reg_datetime.substr(0,10)}
+            </div>
+            <div className='td td2'>
+                {brd_ext1}
+            </div>
+        </li>
     )
 }
 

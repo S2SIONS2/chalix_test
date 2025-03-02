@@ -1,0 +1,107 @@
+.Presentation {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+}
+.Presentation::after {
+    content: "";
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(15, 15, 15, .7));
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    z-index: 1;
+}
+
+.Presentation .title_wrap{
+    width: calc(100% - 4rem);
+    box-sizing: border-box;
+
+    position: absolute;
+    bottom: 8rem;
+    left: 2rem;
+    z-index: 5;
+
+    color: #fff;
+    font-family: Pretendard Variable, sans-serif;
+}
+.Presentation h1 span{
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: -2px;
+
+    opacity: 0;
+}
+.Presentation .board_slider {
+    width: calc(100% - 4rem);
+
+    position: absolute;
+    left: 2rem;
+    bottom: 2.5rem;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+}
+.Presentation .board_slider li {
+    flex: 1;
+
+    padding-top: 30px;
+
+    display: flex;
+    justify-content: center;
+
+    color: #fff;
+    font-size: 18px;
+
+    opacity: 0.5;
+    border-top: 1px solid #fff;
+
+    position: relative;
+}
+.Presentation .board_slider li.on {
+    opacity: 1;
+}
+.Presentation .board_slider li.on::before {
+    content: '';
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+
+    position: absolute;
+    top: -4px;
+
+}
+
+.Presentation .img_wrap {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+.Presentation .img_wrap li {
+    width: 100vw;
+    height: 100%;
+    min-width: 100%;
+}
+.Presentation .img_wrap li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: 4s;
+}
+
+@media screen and (max-width: 768px) {
+    .intro {
+        padding: 50px 16px;
+        box-sizing: border-box;
+    }
+    .intro h1 {
+        font-size: 24px;
+    }
+}

@@ -39,10 +39,10 @@ const Performance = () => {
         const tl = gsap.timeline({
             paused: true,
             scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 0%",
-            end: "bottom 100%",
-            scrub: true,
+                trigger: sectionRef.current,
+                start: "top 0%",
+                end: "bottom 100%",
+                scrub: true,
             }
         });
         

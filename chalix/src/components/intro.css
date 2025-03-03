@@ -74,8 +74,12 @@
 }
 
 @media screen and (max-width: 768px) {
+    .intro_text_wrap{
+        justify-content: flex-end;
+        padding: 150px 28px;
+    }
     .intro_text{
-        width: 100%;
+        margin-bottom: 100px;
     }
     .intro_title{
         width: 100%;

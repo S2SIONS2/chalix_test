@@ -1,6 +1,8 @@
 .Expertise {
     width: 100%;
     height: 100%;
+
+    margin: 200px 0;
 }
 .Expertise .content_top {
     width: 100%;
@@ -62,7 +64,7 @@
     font-weight: 500;
     line-height: 50px;
     margin-bottom: 30px;
-    transition: all .3sease-in-out;
+    transition: all 0.3 sease-in-out;
 }
 .Expertise .content_bottom ul li .text_wrap p{
     color: #fff;
@@ -73,4 +75,129 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.mobile{
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .Expertise {
+        margin-top: 0;
+        padding: 50px 0px;
+        box-sizing: border-box;
+        position: relative;
+        margin: 200px 0 100px 0;
+    }
+    .Expertise .content_top .Expertise_title{
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+    .Expertise .content_top{
+        height: auto;
+        padding: 0;
+        margin-bottom: 40px;
+    }
+    .Expertise_content {
+        line-height: 0.7;
+        font-weight: bold;
+
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+    .Expertise_title span{
+        opacity: 1 !important;
+        transform: translate(0px, 0%) !important;
+
+        font-size: 18px;
+    }
+    .Expertise_content span{
+        opacity: 1 !important;
+        transform: translate(0px, 0%) !important;
+
+        font-size: 28px;
+        line-height: 1;
+    }
+
+    .Expertise .content_bottom{
+        width: 100%;
+        height: auto;
+    }
+    .Expertise .content_bottom ul{
+        padding: 0;
+        gap: 0;
+    }
+    .Expertise .content_bottom ul li {
+        min-width: 100%;
+        flex: 1;
+
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+    .Expertise .content_bottom ul li:hover {
+        filter: brightness(0.7);
+    }
+    .Expertise .content_bottom ul li img{
+        border-radius: 10px;
+        aspect-ratio: 4 / 2.8;
+    }
+    .Expertise .content_bottom ul li .text_wrap{
+        position: static;
+        padding: 20px 0;
+    }
+    .Expertise .content_bottom ul li .text_wrap h1{
+        font-size: 18px;
+        font-weight: bold;
+        color: #000;
+        
+        margin-bottom: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .Expertise .content_bottom ul li .text_wrap p{
+        width: 100%;
+        color: #000;
+        font-size: 18px;
+    }
+    .Expertise button.mobile {
+        width: fit-content;
+        padding: 4px 12px;
+        background-color: #c6c8d0;
+        margin-top: 0;
+
+        border: none;
+        border-radius: 2rem;
+
+        /* color: #fff; */
+
+        cursor: pointer;
+    }
+    .Expertise .slide_button_wrap {
+        width: 100%;
+        display: flex;
+
+        align-items: center;
+        justify-content: flex-end;     
+        gap: 10px;
+        
+        position: absolute;
+        bottom: 20px;
+        right: 10px;
+    }
+    .Expertise .slide_button_wrap button {
+        width: 50px;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        background-color: #c6c8d0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border: none;
+
+        cursor: pointer;
+    }
 }

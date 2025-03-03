@@ -8,7 +8,7 @@
 .Presentation .intro{
     position: relative;
 }
-.intro::before {
+.Presentation .intro::before {
     content: "";
     width: 100%;
     height: 100px;
@@ -100,11 +100,11 @@
 }
 
 @media screen and (max-width: 768px) {
-    .intro {
+    .Presentation .intro {
         padding: 50px 16px;
         box-sizing: border-box;
     }
-    .intro h1 {
+    .Presentation .intro h1 {
         font-size: 24px;
     }
 }

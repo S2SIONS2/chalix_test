@@ -6,7 +6,7 @@ import scale4 from '../assets/scale4.jpg';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Draggable } from 'gsap/Draggable';
 
 gsap.registerPlugin(ScrollTrigger, Draggable);
@@ -211,7 +211,7 @@ const Expertise = () => {
                     </li>
                 </ul>
             </div>
-            <div className='slide_button_wrap mobile'>
+            <div className='slide_button_wrap'>
                 <button type='button' className='leftBtn'> &lt; </button>
                 <button type='button' className='rightBtn'> &gt; </button>
             </div>

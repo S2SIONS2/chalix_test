@@ -100,11 +100,14 @@
 }
 
 @media screen and (max-width: 768px) {
-    .Presentation .intro {
+    /* .Presentation .intro {
         padding: 50px 16px;
         box-sizing: border-box;
-    }
+    } */
     .Presentation .intro h1 {
+        font-size: 24px;
+    }
+    .Presentation h1 span{
         font-size: 24px;
     }
 }

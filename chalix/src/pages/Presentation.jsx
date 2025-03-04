@@ -6,7 +6,7 @@ import Topbutton from '../components/Topbutton';
 import img1 from '../assets/7.png'
 import img2 from '../assets/8.png'
 import gsap from 'gsap';
-import Board from '../components/board';
+import Board from '../components/Board';
 
 const Presentation = () => {
     const imgWrapRef = useRef();

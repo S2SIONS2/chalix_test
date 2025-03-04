@@ -1,7 +1,7 @@
 import './App.css'
 import './reset.css'
 
-import Intro from './components/intro'
+import Intro from './components/Intro'
 import Expertise from './components/Expertise'
 import News from './components/News'
 import Topbutton from './components/Topbutton'

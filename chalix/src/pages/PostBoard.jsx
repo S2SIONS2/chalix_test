@@ -49,7 +49,7 @@ const PostBoard = () => {
         };
     
         try {
-            const response = await fetch("http://daeho2.shop:8081/board", {
+            const response = await fetch("/board", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

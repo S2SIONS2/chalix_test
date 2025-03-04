@@ -17,7 +17,7 @@ const UpdateBoard = () => {
         try {
             setLoading(true)
             const listId = location.state.id // id로 list get
-            const response = await fetch(`http://daeho2.shop:8081/board?id=${listId}`, {
+            const response = await fetch(`/board?id=${listId}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const UpdateBoard = () => {
                 brd_content: content,
                 upd_datetime: date
             }
-            const response = await fetch(`http://daeho2.shop:8081/board/${listId}`, {
+            const response = await fetch(`/board/${listId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -105,7 +105,7 @@ const UpdateBoard = () => {
             const listId = location.state.id
 
             try{
-                const response = await fetch(`http://daeho2.shop:8081/board/${listId}`, {
+                const response = await fetch(`/board/${listId}`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",

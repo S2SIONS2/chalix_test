@@ -12,7 +12,7 @@ const Board = () => {
     const fetchData = async () => {
         try {
             setLoading(true)
-            const response = await fetch("http://daeho2.shop:8081/board", {
+            const response = await fetch("/board", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

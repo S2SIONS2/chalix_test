@@ -1,0 +1,13 @@
+{
+    "rewrites": [
+      {
+        "source": "/board/:path*",
+        "destination": "http://daeho2.shop:8081/board/:path*"
+      },
+      {
+        "source": "/:path*",
+        "destination": "/index.html"
+      }
+    ]
+  }
+  

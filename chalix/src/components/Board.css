@@ -73,3 +73,12 @@
 .BoardList:hover{
     background-color: #f3f3f3e6;
 }
+
+@media screen and (max-width: 768px) {
+    .Board {
+        padding: 40px 16px;
+    }
+    .BoardList{
+        padding: 0;
+    }
+}
